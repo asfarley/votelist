@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Problems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= problem.description %></td>
+        <td><%= problem.upvotes %></td>
+        <td><%= problem.downvotes %></td>
+        <td><%= link_to 'Upvote',controller: "problems", action: "upvote", id: problem %></td>
+	<td><%= link_to 'Downvote', controller: "problems", action: "downvote", id: problem %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Problem', new_problem_path %>
