@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181120061902) do
+ActiveRecord::Schema.define(version: 20181120062209) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "text"
-    t.integer  "upvotes"
-    t.integer  "downvotes"
+    t.integer  "upvotes",    default: 0
+    t.integer  "downvotes",  default: 0
     t.integer  "problem_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["problem_id"], name: "index_comments_on_problem_id"
   end
 
   create_table "problems", force: :cascade do |t|
     t.string   "description"
     t.integer  "upvotes",     default: 0
-    t.integer  "downvotes"
+    t.integer  "downvotes",   default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
